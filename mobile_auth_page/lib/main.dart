@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_auth_page/constants.dart';
 import 'package:mobile_auth_page/src/features/login/screens/login_screen.dart';
+import 'package:mobile_auth_page/src/features/register/screens/registration_screen.dart';
 import 'package:mobile_auth_page/src/features/welcome/screens/welcome_screen.dart';
 
 void main() {
@@ -21,9 +22,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: WelcomeScreen.routeName,
       routes: <String, Widget Function(BuildContext)>{
-        LoginScreen.routeName: (BuildContext context) => LoginScreen(),
+        LoginScreen.routeName: (BuildContext context) => const LoginScreen(),
+        RegistrationScreen.routeName: (BuildContext context) => const RegistrationScreen(),
       },
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }

@@ -4,14 +4,17 @@ import 'package:mobile_auth_page/constants.dart';
 class TextFieldContainer extends StatelessWidget {
   final Widget child;
 
-  const TextFieldContainer({Key? key, required this.child,}) : super(key: key);
+  const TextFieldContainer({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0),
-      padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
       width: size.width * 0.8,
       decoration: BoxDecoration(
         color: kPrimaryLightColor,

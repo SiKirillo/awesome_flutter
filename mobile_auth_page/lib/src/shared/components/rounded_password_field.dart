@@ -33,13 +33,17 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
         obscureText: _isObscure,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          icon: Icon(
+          icon: const Icon(
             Icons.lock,
             color: kPrimaryColor,
           ),
+          suffixIconConstraints: const BoxConstraints(
+            minHeight: 24.0,
+            minWidth: 24.0,
+          ),
           suffixIcon: InkWell(
             onTap: _changeObscureCallback,
-            child: Icon(
+            child: const Icon(
               Icons.visibility,
               color: kPrimaryColor,
             ),

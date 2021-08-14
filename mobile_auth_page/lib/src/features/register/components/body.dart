@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mobile_auth_page/src/features/login/components/background.dart';
+import 'package:mobile_auth_page/src/features/register/components/background.dart';
+import 'package:mobile_auth_page/src/features/register/components/or_divider.dart';
+import 'package:mobile_auth_page/src/features/register/components/social_links.dart';
 import 'package:mobile_auth_page/src/shared/components/bottom_account_check.dart';
 import 'package:mobile_auth_page/src/shared/components/rounded_button.dart';
 import 'package:mobile_auth_page/src/shared/components/rounded_input_field.dart';
@@ -12,8 +14,13 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height -
-        MediaQuery.of(context).viewPadding.vertical;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height - MediaQuery
+        .of(context)
+        .viewPadding
+        .vertical;
 
     return Background(
       child: SafeArea(
@@ -23,17 +30,17 @@ class Body extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const TopScreenTitle(
-                title: 'Login',
+                title: 'Sign up',
               ),
               SizedBox(
-                height: screenHeight * 0.05,
+                height: screenHeight * 0.03,
               ),
               SvgPicture.asset(
-                'assets/icons/login.svg',
-                height: screenHeight * 0.36,
+                'assets/icons/signup.svg',
+                height: screenHeight * 0.3,
               ),
               SizedBox(
-                height: screenHeight * 0.05,
+                height: screenHeight * 0.03,
               ),
               Form(
                 child: Flex(
@@ -47,7 +54,7 @@ class Body extends StatelessWidget {
                       onChanged: (value) {},
                     ),
                     RoundedButton(
-                      text: 'Login',
+                      text: 'Sign up',
                       callback: () {},
                     ),
                   ],
@@ -57,8 +64,10 @@ class Body extends StatelessWidget {
                 height: screenHeight * 0.03,
               ),
               const BottomAccountCheck(
-                hasAccount: false,
+                hasAccount: true,
               ),
+              const OrDivider(),
+              const SocialLinks(),
             ],
           ),
         ),

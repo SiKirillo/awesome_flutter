@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_auth_page/constants.dart';
 import 'package:mobile_auth_page/src/features/login/screens/login_screen.dart';
+import 'package:mobile_auth_page/src/features/register/screens/registration_screen.dart';
 import 'package:mobile_auth_page/src/features/welcome/components/background.dart';
 import 'package:mobile_auth_page/src/shared/components/rounded_button.dart';
+import 'package:mobile_auth_page/src/shared/components/top_screen_title.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class Body extends StatelessWidget {
   }
 
   void _signUpButtonCallback(BuildContext context) {
-    Navigator.of(context).pushNamed(LoginScreen.routeName);
+    Navigator.of(context).pushNamed(RegistrationScreen.routeName);
   }
 
   @override
@@ -25,9 +27,8 @@ class Body extends StatelessWidget {
           direction: Axis.vertical,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Welcome!',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            const TopScreenTitle(
+              title: 'Welcome!',
             ),
             SizedBox(
               height: size.height * 0.05,
