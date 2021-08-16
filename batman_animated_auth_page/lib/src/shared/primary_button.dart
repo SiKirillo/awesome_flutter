@@ -26,7 +26,7 @@ class PrimaryButton extends StatelessWidget {
         child: ClipRect(
           child: Container(
             constraints: BoxConstraints(
-              minHeight: 55.0,
+              minHeight: size.height / 15.0,
               maxWidth: size.width * 0.8,
             ),
             child: Stack(
@@ -42,7 +42,7 @@ class PrimaryButton extends StatelessWidget {
                         ..rotateZ(vector.radians(35.0)),
                       child: Image.asset(
                         'assets/batman_logo.png',
-                        height: 50.0,
+                        height: size.height / 15.0,
                         color: kButtonColor,
                       ),
                     ),
@@ -57,7 +57,7 @@ class PrimaryButton extends StatelessWidget {
                         ..rotateZ(vector.radians(-35.0)),
                       child: Image.asset(
                         'assets/batman_logo.png',
-                        height: 50.0,
+                        height: size.height / 15.0,
                         color: kButtonColor,
                       ),
                     ),
@@ -65,7 +65,7 @@ class PrimaryButton extends StatelessWidget {
                 Center(
                   child: Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
