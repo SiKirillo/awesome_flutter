@@ -1,3 +1,4 @@
+import 'package:batman_animated_auth_page/constants.dart';
 import 'package:flutter/material.dart';
 
 class ScreenTitle extends StatelessWidget {
@@ -21,7 +22,7 @@ class ScreenTitle extends StatelessWidget {
             subtitle!,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 22.0,
+              fontSize: 24.0,
             ),
             textAlign: TextAlign.center,
           ),
@@ -29,7 +30,7 @@ class ScreenTitle extends StatelessWidget {
           title,
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 35.0,
+            fontSize: 38.0,
           ),
           textAlign: TextAlign.center,
         ),
@@ -37,7 +38,7 @@ class ScreenTitle extends StatelessWidget {
           Text(
             description!,
             style: const TextStyle(
-              color: Colors.white,
+              color: kSecondaryColor,
               fontSize: 12.0,
             ),
             textAlign: TextAlign.center,

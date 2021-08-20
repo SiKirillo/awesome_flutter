@@ -1,4 +1,4 @@
-import 'package:batman_animated_auth_page/src/features/welcome/screens/welcome_screen.dart';
+import 'package:batman_animated_auth_page/src/features/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

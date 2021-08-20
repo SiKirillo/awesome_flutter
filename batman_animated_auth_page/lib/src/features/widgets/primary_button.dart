@@ -7,17 +7,19 @@ class PrimaryButton extends StatelessWidget {
   final String title;
   final VoidCallback callback;
   final bool isLeft;
+  final bool isWelcomeScreen;
 
   const PrimaryButton({
     Key? key,
     required this.title,
     required this.callback,
     this.isLeft = true,
+    this.isWelcomeScreen = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
 
     return Material(
       color: kPrimaryButtonColor,
@@ -27,6 +29,9 @@ class PrimaryButton extends StatelessWidget {
           child: Container(
             constraints: BoxConstraints(
               minHeight: size.height / 15.0,
+              maxHeight: size.height > 800.0 || isWelcomeScreen
+                  ? (size.height / 13.0)
+                  : (size.height / 15.0),
               maxWidth: size.width * 0.8,
             ),
             child: Stack(
@@ -43,7 +48,7 @@ class PrimaryButton extends StatelessWidget {
                       child: Image.asset(
                         'assets/batman_logo.png',
                         height: size.height / 15.0,
-                        color: kButtonColor,
+                        color: kSecondaryButtonColor,
                       ),
                     ),
                   ),
@@ -58,7 +63,7 @@ class PrimaryButton extends StatelessWidget {
                       child: Image.asset(
                         'assets/batman_logo.png',
                         height: size.height / 15.0,
-                        color: kButtonColor,
+                        color: kSecondaryButtonColor,
                       ),
                     ),
                   ),

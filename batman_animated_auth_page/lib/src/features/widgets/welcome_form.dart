@@ -1,13 +1,13 @@
-import 'package:batman_animated_auth_page/src/shared/primary_button.dart';
+import 'package:batman_animated_auth_page/src/features/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatelessWidget {
+class WelcomeForm extends StatelessWidget {
   final String primaryTitle;
-  final Function primaryCallback;
+  final VoidCallback primaryCallback;
   final String? secondaryTitle;
-  final Function? secondaryCallback;
+  final VoidCallback? secondaryCallback;
 
-  const LoginForm({
+  const WelcomeForm({
     Key? key,
     required this.primaryTitle,
     required this.primaryCallback,
@@ -25,7 +25,7 @@ class LoginForm extends StatelessWidget {
         children: <Widget>[
           PrimaryButton(
             title: primaryTitle,
-            callback: () => primaryCallback,
+            callback: primaryCallback,
           ),
           if (secondaryTitle != null && secondaryCallback != null)
             SizedBox(
@@ -34,7 +34,7 @@ class LoginForm extends StatelessWidget {
           if (secondaryTitle != null && secondaryCallback != null)
             PrimaryButton(
               title: secondaryTitle!,
-              callback: () => secondaryCallback!,
+              callback: secondaryCallback!,
               isLeft: false,
             ),
         ],
