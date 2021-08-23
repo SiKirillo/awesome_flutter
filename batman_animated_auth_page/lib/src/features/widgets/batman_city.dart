@@ -8,8 +8,13 @@ class BatmanCity extends AnimatedWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return ClipPath(
-      clipper: _CityClipper(progress: _animation.value),
+      clipper: _CityClipper(
+        progress: _animation.value,
+        padding: size.width * 0.07,
+      ),
       child: Image.asset('assets/city.png'),
     );
   }
@@ -17,16 +22,24 @@ class BatmanCity extends AnimatedWidget {
 
 class _CityClipper extends CustomClipper<Path> {
   final double progress;
+  final double padding;
 
-  const _CityClipper({required this.progress});
+  const _CityClipper({
+    required this.progress,
+    required this.padding,
+  });
 
   @override
   Path getClip(Size size) {
     return Path()
       ..moveTo(0.0, size.height)
-      ..lineTo(size.width, size.height)
+      ..lineTo(size.width - padding, size.height)
+      ..lineTo(size.width - padding, size.height - padding)
+      ..lineTo(size.width - padding / 1.5, size.height - padding)
       ..lineTo(size.width / 2, size.height * (1 - progress))
-      ..lineTo(0.0, size.height);
+      ..lineTo(padding / 1.5, size.height - padding)
+      ..lineTo(padding, size.height - padding)
+      ..lineTo(padding, size.height);
   }
 
   @override

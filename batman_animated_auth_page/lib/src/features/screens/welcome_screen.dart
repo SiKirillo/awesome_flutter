@@ -3,8 +3,7 @@ import 'package:batman_animated_auth_page/src/features/widgets/batman_alone.dart
 import 'package:batman_animated_auth_page/src/features/widgets/batman_background.dart';
 import 'package:batman_animated_auth_page/src/features/widgets/batman_city.dart';
 import 'package:batman_animated_auth_page/src/features/widgets/batman_logo.dart';
-import 'package:batman_animated_auth_page/src/features/widgets/content_wrapper.dart';
-import 'package:batman_animated_auth_page/src/features/widgets/login_from.dart';
+import 'package:batman_animated_auth_page/src/features/widgets/login_form.dart';
 import 'package:batman_animated_auth_page/src/features/widgets/welcome_form.dart';
 import 'package:batman_animated_auth_page/src/features/widgets/screen_title.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +103,16 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.dispose();
   }
 
-  void _onSignUpHandler() {
+  void _onLoginHandler() {
+    setState(() {
+      _isWelcomeScreen = false;
+      _isLoginScreen = true;
+      _isRegistrationScreen = false;
+    });
+    _navigationController.forward(from: 0.0);
+  }
+
+  void _onRegistrationHandler() {
     setState(() {
       _isWelcomeScreen = false;
       _isLoginScreen = false;
@@ -156,9 +164,37 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             : _animationLogoDown.value)),
                 child: WelcomeForm(
                   primaryTitle: 'LOGIN',
-                  primaryCallback: _onSignUpHandler,
+                  primaryCallback: _onLoginHandler,
                   secondaryTitle: 'SIGN UP',
-                  secondaryCallback: _onSignUpHandler,
+                  secondaryCallback: _onRegistrationHandler,
+                ),
+              ),
+            );
+
+            final Widget loginTitle = Opacity(
+              opacity: _animationLoginIn.value,
+              child: Transform.translate(
+                offset: Offset(
+                  0.0,
+                  animationDownPadding * _animationLoginIn.value,
+                ),
+                child: const ScreenTitle(
+                  title: 'WELCOME BACK',
+                  description: 'ENTER YOUR EMAIL & PASSWORD',
+                ),
+              ),
+            );
+            final Widget loginForm = Opacity(
+              opacity: _animationLoginIn.value,
+              child: Transform.translate(
+                offset: Offset(
+                  0.0,
+                  animationDownPadding * _animationLoginIn.value,
+                ),
+                child: LoginForm(
+                  buttonTitle: 'SIGN IN',
+                  buttonCallback: () {},
+                  isLogin: true,
                 ),
               ),
             );
@@ -212,7 +248,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       if (_isWelcomeScreen || _animationLogoDown.value < 0.3)
                         welcomeTitle,
                       if (_isLoginScreen && _animationLogoDown.value > 0.3)
-                        registrationTitle,
+                        loginTitle,
                       if (_isRegistrationScreen &&
                           _animationLogoDown.value > 0.3)
                         registrationTitle,
@@ -225,7 +261,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       if (_isWelcomeScreen || _animationLogoDown.value < 0.3)
                         welcomeForm,
                       if (_isLoginScreen && _animationLogoDown.value > 0.3)
-                        registrationForm,
+                        loginForm,
                       if (_isRegistrationScreen &&
                           _animationLogoDown.value > 0.3)
                         registrationForm,

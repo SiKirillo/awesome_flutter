@@ -21,7 +21,6 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return Container(
       constraints: BoxConstraints(
         minHeight: size.height / 15.0,
@@ -31,6 +30,8 @@ class InputField extends StatelessWidget {
       ),
       child: TextField(
         style: const TextStyle(color: Colors.white),
+        textInputAction: TextInputAction.next,
+        obscureText: isPassword,
         decoration: InputDecoration(
           labelText: label,
           labelStyle: const TextStyle(
