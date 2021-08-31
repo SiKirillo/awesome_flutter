@@ -272,7 +272,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             }
 
             return Container(
-              color: Colors.black,
+              color: kBatmanColor,
               child: Stack(
                 alignment: Alignment.center,
                 children: <Widget>[
