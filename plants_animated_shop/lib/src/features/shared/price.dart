@@ -6,7 +6,7 @@ class Price extends StatelessWidget {
 
   const Price({
     Key? key,
-    required this.amount,
+    this.amount = '66.66',
   }) : super(key: key);
 
   @override

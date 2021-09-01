@@ -19,9 +19,12 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        padding: const EdgeInsets.symmetric(
+          vertical: 8.0,
+          horizontal: 10.0,
+        ),
         decoration: const BoxDecoration(
-          color: Color(0xFFF7F7F7),
+          color: kProductItemBackgroundColor,
           borderRadius: BorderRadius.all(
             Radius.circular(kDefaultPadding * 1.25),
           ),
@@ -32,7 +35,12 @@ class ProductCard extends StatelessWidget {
           children: <Widget>[
             Hero(
               tag: product.title!,
-              child: Image.asset(product.imageSrc!),
+              child: Image.asset(
+                product.imageSrc!,
+                height: 130.0,
+                width: 130.0,
+                fit: BoxFit.cover,
+              ),
             ),
             Text(
               product.title!,
@@ -48,9 +56,11 @@ class ProductCard extends StatelessWidget {
             Flex(
               direction: Axis.horizontal,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                Price(amount: '20.00'),
-                FavoriteButton(),
+              children: <Widget>[
+                Price(amount: product.price!),
+                FavoriteButton(
+                  callback: () {},
+                ),
               ],
             )
           ],
