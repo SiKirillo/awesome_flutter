@@ -33,11 +33,13 @@ class _FavoriteButtonState extends State<FavoriteButton> {
     return SizedBox(
       height: widget.isSmall ? 22.0 : 36.0,
       width: widget.isSmall ? 22.0 : 36.0,
-      child: MaterialButton(
-        shape: const CircleBorder(),
-        elevation: 0.0,
-        color: const Color(0xFFE3E2E3),
-        padding: EdgeInsets.zero,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: const Color(0xFFE3E2E3),
+          shape: const CircleBorder(),
+          padding: EdgeInsets.zero,
+          elevation: 0.5,
+        ),
         onPressed: _onTapHandler,
         child: SvgPicture.asset(
           'assets/icons/heart.svg',

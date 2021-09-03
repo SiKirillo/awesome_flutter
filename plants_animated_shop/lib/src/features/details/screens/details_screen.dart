@@ -4,6 +4,7 @@ import 'package:plants_animated_shop/src/features/details/widgets/product_image.
 import 'package:plants_animated_shop/src/features/details/widgets/product_top_description.dart';
 import 'package:plants_animated_shop/src/features/shared/content_wrapper.dart';
 import 'package:plants_animated_shop/src/features/shared/favorite_button.dart';
+import 'package:plants_animated_shop/src/features/shared/primary_button.dart';
 import 'package:plants_animated_shop/src/features/shared/scrollable_wrapper.dart';
 import 'package:plants_animated_shop/src/models/product.dart';
 
@@ -93,9 +94,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         const SizedBox(
                           height: kDefaultPadding / 2.0,
                         ),
-                        ElevatedButton(
-                          onPressed: _onAddToCartButtonHandler,
-                          child: const Text('Add to Cart'),
+                        PrimaryButton(
+                          title: 'Add to Cart',
+                          callback: _onAddToCartButtonHandler,
                         ),
                         const SizedBox(
                           height: kDefaultPadding / 2.0,

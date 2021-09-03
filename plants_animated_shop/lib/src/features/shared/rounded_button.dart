@@ -15,17 +15,24 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      padding: EdgeInsets.zero,
-      shape: const CircleBorder(),
-      elevation: 0.0,
-      color: Colors.white,
-      height: 36.0,
-      minWidth: 36.0,
-      onPressed: callback,
-      child: Icon(
-        iconData,
-        color: color,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
+        height: 36.0,
+        width: 36.0,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            shape: const CircleBorder(),
+            padding: EdgeInsets.zero,
+            elevation: 0.5,
+          ),
+          onPressed: callback,
+          child: Icon(
+            iconData,
+            color: color,
+          ),
+        ),
       ),
     );
   }
