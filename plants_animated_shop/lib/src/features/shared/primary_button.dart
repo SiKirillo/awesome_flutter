@@ -21,7 +21,8 @@ class PrimaryButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           primary: kPrimaryColor,
           shape: const StadiumBorder(),
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 20.0),
+          elevation: 1.0,
         ),
         onPressed: callback,
         child: Text(

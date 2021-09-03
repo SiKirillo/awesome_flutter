@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:plants_animated_shop/src/constants.dart';
 
-class Price extends StatelessWidget {
-  final String amount;
+class PriceLabel extends StatelessWidget {
+  final double amount;
 
-  const Price({
+  const PriceLabel({
     Key? key,
-    this.amount = '66.66',
+    this.amount = 66.66,
   }) : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class Price extends StatelessWidget {
             .copyWith(fontWeight: FontWeight.bold, color: kPrimaryColor),
         children: [
           TextSpan(
-            text: amount,
+            text: amount.toString(),
             style: const TextStyle(color: Colors.black),
           ),
           const TextSpan(

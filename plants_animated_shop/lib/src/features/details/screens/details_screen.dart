@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plants_animated_shop/src/constants.dart';
+import 'package:plants_animated_shop/src/controllers/home_controller.dart';
 import 'package:plants_animated_shop/src/features/details/widgets/product_image.dart';
 import 'package:plants_animated_shop/src/features/details/widgets/product_top_description.dart';
 import 'package:plants_animated_shop/src/features/shared/content_wrapper.dart';
@@ -7,6 +8,7 @@ import 'package:plants_animated_shop/src/features/shared/favorite_button.dart';
 import 'package:plants_animated_shop/src/features/shared/primary_button.dart';
 import 'package:plants_animated_shop/src/features/shared/scrollable_wrapper.dart';
 import 'package:plants_animated_shop/src/models/product.dart';
+import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatefulWidget {
   static const routeName = '/details';
@@ -22,6 +24,11 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  void _onAddToCartButtonHandler() {
+    context.read<HomeController>().addProductToCart(widget.product);
+    Navigator.of(context).pop();
+  }
+
   PreferredSize _buildAppBar() {
     return PreferredSize(
       preferredSize: const Size.fromHeight(kAppBarHeight),
@@ -50,9 +57,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
-  void _onAddToCartButtonHandler() {
-    Navigator.of(context).pop();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +67,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         direction: Axis.vertical,
         children: <Widget>[
           ProductImage(
-            heroTag: widget.product.title!,
-            imageSrc: widget.product.imageSrc!,
+            heroTag: widget.product.title,
+            imageSrc: widget.product.imageSrc,
           ),
           Expanded(
             child: ContentWrapper(
@@ -75,8 +79,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     height: kDefaultPadding * 1.5,
                   ),
                   ProductTopDescription(
-                    title: widget.product.title!,
-                    price: widget.product.price!,
+                    title: widget.product.title,
+                    price: widget.product.price,
                   ),
                   const SizedBox(
                     height: kDefaultPadding / 2.0,

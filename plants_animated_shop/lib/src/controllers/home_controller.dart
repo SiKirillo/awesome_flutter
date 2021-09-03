@@ -35,4 +35,7 @@ class HomeController extends ChangeNotifier {
 
   int totalCartItems() => _cart.fold(
       0, (previousValue, element) => previousValue + element.quantity);
+
+  int totalProductItems(String productTitle) =>
+      _cart.firstWhere((item) => item.product!.title == productTitle).quantity;
 }

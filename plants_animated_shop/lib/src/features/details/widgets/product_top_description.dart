@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:plants_animated_shop/src/features/shared/price.dart';
+import 'package:plants_animated_shop/src/features/shared/price_label.dart';
 
 class ProductTopDescription extends StatelessWidget {
   final String title;
-  final String price;
+  final double price;
 
   const ProductTopDescription({
     Key? key,
@@ -25,7 +25,7 @@ class ProductTopDescription extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Price(amount: price),
+        PriceLabel(amount: price),
       ],
     );
   }
