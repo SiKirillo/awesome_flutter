@@ -73,10 +73,7 @@ class ProductCard extends StatelessWidget {
     return GestureDetector(
       onTap: callback,
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 8.0,
-          horizontal: 12.0,
-        ),
+        padding: const EdgeInsets.all(12.0),
         decoration: const BoxDecoration(
           color: kProductItemBackgroundColor,
           borderRadius: BorderRadius.all(
@@ -85,7 +82,7 @@ class ProductCard extends StatelessWidget {
         ),
         child: Flex(
           direction: Axis.vertical,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Hero(
               tag: product.title,
@@ -96,27 +93,33 @@ class ProductCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Text(
-              product.title,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Fruits',
-              style: Theme.of(context).textTheme.caption,
-            ),
             Flex(
-              direction: Axis.horizontal,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              direction: Axis.vertical,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                PriceLabel(amount: product.price),
-                FavoriteButton(
-                  callback: () {},
+                Text(
+                  product.title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'Fruits',
+                  style: Theme.of(context).textTheme.caption,
+                ),
+                Flex(
+                  direction: Axis.horizontal,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    PriceLabel(amount: product.price),
+                    FavoriteButton(
+                      callback: () {},
+                    ),
+                  ],
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
