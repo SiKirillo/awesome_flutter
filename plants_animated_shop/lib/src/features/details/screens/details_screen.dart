@@ -85,28 +85,33 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   const SizedBox(
                     height: kDefaultPadding / 2.0,
                   ),
-                  Expanded(
+                  const Expanded(
                     child: ScrollableWrapper(
-                      widgets: [
-                        const Text(
+                      widgets: <Widget>[
+                        Text(
                           'Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the cole crops or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).',
                           style: TextStyle(
                             color: Color(0xFFBDBDBD),
                             height: 1.8,
                           ),
                         ),
-                        const SizedBox(
-                          height: kDefaultPadding / 2.0,
-                        ),
-                        PrimaryButton(
-                          title: 'Add to Cart',
-                          callback: _onAddToCartButtonHandler,
-                        ),
-                        const SizedBox(
-                          height: kDefaultPadding / 2.0,
-                        ),
                       ],
                     ),
+                  ),
+                  Flex(
+                    direction: Axis.vertical,
+                    children: <Widget>[
+                      const SizedBox(
+                        height: kDefaultPadding / 2.0,
+                      ),
+                      PrimaryButton(
+                        title: 'Add to Cart',
+                        callback: _onAddToCartButtonHandler,
+                      ),
+                      const SizedBox(
+                        height: kDefaultPadding / 2.0,
+                      ),
+                    ],
                   ),
                 ],
               ),
